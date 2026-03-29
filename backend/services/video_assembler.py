@@ -45,9 +45,9 @@ def build_ffmpeg_command(
     output_path: Path,
     settings: Settings,
 ) -> list[str]:
-    inputs: list[str] = [settings.ffmpeg_binary, "-y"]
+    inputs: list[str] = [settings.ffmpeg_binary, "-y", "-threads", "1"]
     filter_parts: list[str] = []
-    use_drawtext = ffmpeg_supports_drawtext(settings.ffmpeg_binary)
+    use_drawtext = False
     mock_scene_duration = 1 if settings.mock_external_services else None
 
     for index, (scene, visual_path) in enumerate(zip(script.scenes, visual_paths, strict=True)):
@@ -92,26 +92,13 @@ def build_ffmpeg_command(
         if settings.mock_external_services
         else script.total_duration_seconds
     )
-    music_index = narration_index + 1
-    include_music = (
-        settings.background_music_path.exists() and not settings.mock_external_services
-    )
-    if include_music:
-        inputs.extend(["-stream_loop", "-1", "-i", str(settings.background_music_path)])
+    include_music = False
 
     concat_inputs = "".join(f"[v{index}]" for index in range(len(visual_paths)))
     filter_parts.append(f"{concat_inputs}concat=n={len(visual_paths)}:v=1:a=0[outv]")
     filter_parts.append(f"[{narration_index}:a]atrim=duration={total_duration},asetpts=PTS-STARTPTS[voice]")
 
-    if include_music:
-        filter_parts.append(
-            f"[{music_index}:a]atrim=duration={total_duration},asetpts=PTS-STARTPTS,"
-            "volume=0.15,afade=t=in:st=0:d=2,"
-            f"afade=t=out:st={max(total_duration - 3, 0)}:d=3[music]"
-        )
-        filter_parts.append("[voice][music]amix=inputs=2:duration=first:normalize=0[outa]")
-    else:
-        filter_parts.append("[voice]anull[outa]")
+    filter_parts.append("[voice]anull[outa]")
 
     return [
         *inputs,
@@ -124,7 +111,7 @@ def build_ffmpeg_command(
         "-c:v",
         "libx264",
         "-preset",
-        "veryfast",
+        "ultrafast",
         "-pix_fmt",
         "yuv420p",
         "-r",
@@ -147,8 +134,8 @@ def _image_filter(
     use_drawtext: bool,
 ) -> str:
     filter_chain = (
-        f"[{index}:v]scale=1280:720:force_original_aspect_ratio=increase,"
-        "crop=1280:720,"
+        f"[{index}:v]scale=960:540:force_original_aspect_ratio=increase,"
+        "crop=960:540,"
     )
     if use_drawtext:
         escaped_title = _escape_text(title)
@@ -168,7 +155,7 @@ def _video_filter(
 ) -> str:
     filter_chain = (
         f"[{index}:v]trim=duration={duration_seconds},setpts=PTS-STARTPTS,"
-        "fps=24,scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,"
+        "fps=24,scale=960:540:force_original_aspect_ratio=increase,crop=960:540,"
     )
     if use_drawtext:
         escaped_title = _escape_text(title)
