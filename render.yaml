@@ -11,7 +11,7 @@ services:
       - key: APP_ENV
         value: production
       - key: ALLOWED_ORIGINS
-        value: "https://your-vercel-frontend-url.vercel.app" # You'll update this later
+        value: "https://pitch-maker-eight.vercel.app"
       - key: MISTRAL_API_KEY
         sync: false
       - key: ELEVENLABS_API_KEY
