@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getJobStatus, type JobStatus } from "@/api/client";
+import { getJobStatus, type JobStatus, getVideoUrl } from "@/api/client";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { Download, Plus } from "lucide-react";
 
@@ -19,6 +19,8 @@ export function ResultPage() {
 
   if (!status) return null;
 
+  const videoUrl = status.video_url ? getVideoUrl(status.video_url) : null;
+
   return (
     <div className="flex flex-col items-center min-h-[80vh] w-full max-w-4xl mx-auto space-y-12">
       <div className="text-center space-y-4">
@@ -31,14 +33,14 @@ export function ResultPage() {
       </div>
 
       <div className="w-full">
-        {status.video_url && (
-          <VideoPlayer url={status.video_url} />
+        {videoUrl && (
+          <VideoPlayer url={videoUrl} />
         )}
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
         <a
-          href={status.video_url || "#"}
+          href={videoUrl || "#"}
           download
           className="w-full flex items-center justify-center space-x-2 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold py-4 px-6 rounded-md shadow-glow hover:opacity-90 transition-opacity"
         >
