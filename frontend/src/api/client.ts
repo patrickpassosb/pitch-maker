@@ -16,7 +16,7 @@ export interface JobStatus {
   error: string | null;
 }
 
-const API_BASE = "/api";
+const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
 export async function generatePitch(data: GenerateRequest): Promise<{ job_id: string; status: string }> {
   const res = await fetch(`${API_BASE}/generate`, {

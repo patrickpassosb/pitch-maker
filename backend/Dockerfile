@@ -3,6 +3,7 @@ FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim
 WORKDIR /app
 
 COPY pyproject.toml uv.lock ./
+RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 RUN uv sync --frozen --no-dev
 
 COPY . .
