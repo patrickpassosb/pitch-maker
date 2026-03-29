@@ -44,7 +44,17 @@ class Settings(BaseSettings):
     @classmethod
     def split_origins(cls, value: object) -> object:
         if isinstance(value, str):
-            return [item.strip() for item in value.split(",") if item.strip()]
+            return [
+                item.strip().rstrip("/")
+                for item in value.split(",")
+                if item.strip()
+            ]
+        if isinstance(value, list):
+            return [
+                item.strip().rstrip("/")
+                for item in value
+                if isinstance(item, str) and item.strip()
+            ]
         return value
 
 
