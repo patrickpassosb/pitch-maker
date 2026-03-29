@@ -6,6 +6,30 @@
   body {
     @apply bg-surface text-on-surface font-sans antialiased selection:bg-primary/30 selection:text-primary;
   }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-lowest;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-highest rounded-full border-[3px] border-solid border-surface-lowest bg-clip-padding;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-outline-variant border-surface-lowest;
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.surface.highest') theme('colors.surface.lowest');
+  }
 }
 
 @layer components {
