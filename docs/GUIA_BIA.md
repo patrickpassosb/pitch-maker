@@ -39,11 +39,11 @@ Simple form-based workflow from idea to demo-ready pitch
 
 **Visual Style:** AI Images
 
-### 2. Deixar 3 abas abertas no navegador, nesta ordem:
+### 2. Deixar estas abas abertas no navegador:
 
 1. **QR Code** — imagem do QR code em tela cheia
 2. **Site** — https://pitch-maker-eight.vercel.app com o formulario ja preenchido (dados acima)
-3. **Video** — pagina de resultado com o video de 30s pronto pra dar play
+3. **Video backup** — uma aba com o video ja gerado antes da apresentacao (caso a geracao ao vivo falhe)
 
 ---
 
@@ -52,9 +52,9 @@ Simple form-based workflow from idea to demo-ready pitch
 | Momento | O que o Patrick fala | O que voce faz |
 |---------|---------------------|----------------|
 | **0:00** | "Quem aqui ja teve uma ideia incrivel..." | **Mostra a aba do QR Code** em tela cheia |
-| **0:30** | "O fluxo e simples..." | **Troca para a aba do site** e mostra o formulario |
-| **0:45** | "Quando voce clica em gerar..." | **Rola a pagina** mostrando os campos preenchidos (NAO clica em gerar!) |
-| **1:15** | "E esse e o resultado..." | **Troca para a aba do video** e espera ele terminar a frase |
+| **0:30** | "O fluxo e simples..." | **Troca para a aba do site** e mostra o formulario preenchido |
+| **0:45** | "Quando voce clica em gerar..." | **Clica em "Generate Cinematic Pitch"** — mostra a tela de progresso gerando ao vivo |
+| **1:15** | "E esse e o resultado..." | Se o video **ja terminou**: mostra o resultado. Se **ainda esta gerando**: troca pra aba do video backup |
 | **1:20** | (Patrick para de falar) | **Da play no video** e deixa rodar os 30 segundos completos |
 | **1:50** | (video termina) | Nao precisa fazer nada, Patrick volta a falar |
 | **3:00** | "Obrigado!" | Fim! |
@@ -64,13 +64,20 @@ Simple form-based workflow from idea to demo-ready pitch
 ## Resumo rapido
 
 ```
-QR Code  -->  Site (formulario)  -->  Video (play)  -->  Fim
-  30s            45s                    35s              50s
+QR Code  -->  Site (formulario)  -->  Clica GERAR  -->  Video (play)  -->  Fim
+  30s            15s                    30s               35s             30s
 ```
+
+## Plano B (se a geracao ao vivo falhar)
+
+Se a geracao travar, der erro, ou nao terminar a tempo:
+- Troca pra aba do **video backup** (ja gerado antes)
+- Da play normalmente
+- Patrick nem precisa comentar, ninguem vai perceber
 
 ## Dicas
 
 - Fique atenta ao que o Patrick esta falando pra trocar na hora certa
-- Se der algum problema tecnico, fica tranquila — Patrick improvisa
-- O mais importante: dar play no video na hora certa (quando ele disser "esse e o resultado")
-- NAO clique em "Generate Cinematic Pitch" no site — vai demorar demais ao vivo
+- O momento mais importante: clicar em gerar quando ele falar "quando voce clica em gerar"
+- Se o progresso terminar antes do Patrick pedir o video, espera ele pedir
+- Fica de olho na tela de progresso — se der erro, troca pro backup sem falar nada
