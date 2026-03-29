@@ -58,7 +58,7 @@ def build_ffmpeg_command(
                     "-loop",
                     "1",
                     "-framerate",
-                    "30",
+                    "24",
                     "-t",
                     str(scene_duration),
                     "-i",
@@ -128,7 +128,7 @@ def build_ffmpeg_command(
         "-pix_fmt",
         "yuv420p",
         "-r",
-        "30",
+        "24",
         "-c:a",
         "aac",
         "-b:a",
@@ -146,11 +146,9 @@ def _image_filter(
     duration_seconds: int,
     use_drawtext: bool,
 ) -> str:
-    frame_count = duration_seconds * 30
     filter_chain = (
-        f"[{index}:v]scale=1920:1080:force_original_aspect_ratio=increase,"
-        "crop=1920:1080,"
-        f"zoompan=z='1+0.0003*on':d={frame_count}:s=1920x1080:fps=30,"
+        f"[{index}:v]scale=1280:720:force_original_aspect_ratio=increase,"
+        "crop=1280:720,"
     )
     if use_drawtext:
         escaped_title = _escape_text(title)
@@ -170,7 +168,7 @@ def _video_filter(
 ) -> str:
     filter_chain = (
         f"[{index}:v]trim=duration={duration_seconds},setpts=PTS-STARTPTS,"
-        "fps=30,scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,"
+        "fps=24,scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,"
     )
     if use_drawtext:
         escaped_title = _escape_text(title)
