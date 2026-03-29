@@ -1,14 +1,14 @@
 FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim
 
-WORKDIR /app/backend
+WORKDIR /app
 
-COPY backend/pyproject.toml backend/uv.lock ./
+COPY pyproject.toml uv.lock ./
 RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 RUN uv sync --frozen --no-dev
 
-COPY backend/ .
+COPY . .
 
-ENV PATH="/app/backend/.venv/bin:$PATH"
+ENV PATH="/app/.venv/bin:$PATH"
 EXPOSE 8000
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
