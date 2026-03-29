@@ -2,9 +2,10 @@ from __future__ import annotations
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Annotated
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = BASE_DIR.parent
@@ -33,7 +34,10 @@ class Settings(BaseSettings):
     background_music_path: Path = PROJECT_DIR / "assets" / "music" / "background.mp3"
     ffmpeg_binary: str = "ffmpeg"
 
-    allowed_origins: list[str] = Field(default_factory=lambda: ["http://localhost:5173"])
+    allowed_origins: Annotated[
+        list[str],
+        NoDecode,
+    ] = Field(default_factory=lambda: ["http://localhost:5173"])
     mock_external_services: bool = False
 
     @field_validator("allowed_origins", mode="before")
