@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#313030",
+              "on-tertiary": "#003063",
+              "primary-fixed-dim": "#f1bf61",
+              "on-surface": "#e5e2e1",
+              "tertiary-fixed-dim": "#a9c7ff",
+              "primary": "#f2c062",
+              "on-secondary": "#3e2e0d",
+              "surface-container": "#201f1f",
+              "outline": "#9b8f7e",
+              "outline-variant": "#4f4537",
+              "surface-container-lowest": "#0e0e0e",
+              "secondary-fixed-dim": "#dec396",
+              "surface-variant": "#353534",
+              "on-error": "#690005",
+              "surface-tint": "#f1bf61",
+              "background": "#131313",
+              "on-secondary-fixed": "#271900",
+              "surface": "#131313",
+              "secondary": "#dec396",
+              "tertiary-container": "#89adec",
+              "inverse-primary": "#7c5800",
+              "on-secondary-fixed-variant": "#564422",
+              "on-tertiary-container": "#144078",
+              "on-primary-fixed-variant": "#5e4200",
+              "tertiary": "#abc8ff",
+              "primary-fixed": "#ffdea7",
+              "tertiary-fixed": "#d6e3ff",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#fbdfb0",
+              "on-tertiary-fixed": "#001b3d",
+              "on-primary": "#412d00",
+              "surface-container-highest": "#353534",
+              "error-container": "#93000a",
+              "on-primary-container": "#563c00",
+              "surface-dim": "#131313",
+              "on-secondary-container": "#cfb589",
+              "primary-container": "#d4a54a",
+              "on-background": "#e5e2e1",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#2a2a2a",
+              "on-primary-fixed": "#271900",
+              "surface-bright": "#3a3939",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#1d477f",
+              "secondary-container": "#594624",
+              "on-surface-variant": "#d2c5b1"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-center items-center px-8 py-4 bg-[#131313] dark:bg-[#0e0e0e]">
+<div class="flex items-center justify-between w-full max-w-7xl">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-black tracking-[-0.02em] text-[#f2c062] uppercase font-headline">PITCH MAKER</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#f2c062] border-b-2 border-[#f2c062] font-['Noto_Serif'] tracking-tight text-lg font-bold transition-transform scale-95 active:scale-90" href="#">STUDIO</a>
+<a class="text-[#e5e2e1] opacity-70 hover:text-[#f2c062] transition-colors duration-300 font-['Noto_Serif'] tracking-tight text-lg font-bold" href="#">ARCHIVE</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#e5e2e1] opacity-70 hover:text-[#f2c062] transition-colors" data-icon="history">history</button>
+<button class="material-symbols-outlined text-[#e5e2e1] opacity-70 hover:text-[#f2c062] transition-colors" data-icon="settings">settings</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Suppressed for focused result screen) -->
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center px-6 pt-24 pb-32">
+<div class="w-full max-w-[800px] text-center">
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="font-headline text-primary text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.03em] mb-2 uppercase">Your Pitch is Ready</h1>
+<p class="font-label text-secondary opacity-60 tracking-[0.2em] text-xs font-medium uppercase">PROJECT: NOIR_DREAMSCAPE_04</p>
+</div>
+<!-- Video Player Component -->
+<div class="relative group aspect-video w-full rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/20 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+<img alt="Cinematic frame from a film noir pitch showing a rainy city street at night with neon signs reflecting in puddles" class="w-full h-full object-cover opacity-80" data-alt="Cinematic frame from a film noir pitch showing a rainy city street at night with neon signs reflecting in puddles, dramatic shadows, moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv-i-sZOMJeFs0Rd4DkL0usqr0tnDvhhzNT9-Aev6GUBihOcP4hmuFCPDPquu2cC5pR3srGVzXNhWxcmwMpiG4YOOk8s6F1yaL-HTOlc4t4dOFgiwSprZaVyIw1Zv6Khsazbaob8PJzQFUmqcOBQPdCMjFNKy7TKCl7av_m1-7ThN92lSdGSflGMPvG3sS2vOjGDDdkRTkp0abLp0IkV3OJunigHeDDJ4gCHLEtV818pyGNoCr6yKym2jhgZ96VgwHOx8YpPY78wU"/>
+<!-- Player Overlay UI -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+<div class="w-full flex items-center justify-between gap-4">
+<button class="material-symbols-outlined text-primary text-4xl hover:scale-110 transition-transform" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</button>
+<div class="flex-grow h-1 bg-white/20 rounded-full relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1/3 bg-primary"></div>
+</div>
+<span class="font-label text-[10px] tracking-widest text-on-surface opacity-80">00:20 / 01:00</span>
+<button class="material-symbols-outlined text-on-surface opacity-80" data-icon="fullscreen">fullscreen</button>
+</div>
+</div>
+<!-- Ambient Glow Behind -->
+<div class="absolute -z-10 inset-0 blur-[100px] bg-primary/5 rounded-full"></div>
+</div>
+<!-- Stats Bar -->
+<div class="mt-6 flex items-center justify-center gap-4 text-on-surface/40 font-label text-[10px] tracking-[0.15em] uppercase">
+<span>Duration: 60s</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>5 scenes</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>Generated in 28s</span>
+</div>
+<!-- Action Buttons -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="group relative w-full sm:w-64 h-14 bg-gradient-to-br from-primary to-primary-container rounded-md overflow-hidden transition-all active:scale-95">
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+<div class="flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-on-primary" data-icon="download">download</span>
+<span class="font-label font-bold text-on-primary tracking-widest uppercase text-sm">Download MP4</span>
+</div>
+<!-- Bloom Effect -->
+<div class="absolute -inset-4 bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</button>
+<button class="w-full sm:w-64 h-14 border border-outline-variant hover:border-primary/50 hover:bg-surface-container-highest/30 rounded-md transition-all active:scale-95">
+<div class="flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="add_circle">add_circle</span>
+<span class="font-label font-bold text-primary tracking-widest uppercase text-sm">Create New Pitch</span>
+</div>
+</button>
+</div>
+<!-- Secondary Actions -->
+<div class="mt-16 flex items-center justify-center gap-12 border-t border-outline-variant/10 pt-10">
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface opacity-60 group-hover:opacity-100 group-hover:text-primary transition-all" data-icon="share">share</span>
+</div>
+<span class="font-label text-[9px] tracking-[0.2em] opacity-40 uppercase group-hover:opacity-100 transition-opacity">Share Link</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface opacity-60 group-hover:opacity-100 group-hover:text-primary transition-all" data-icon="description">description</span>
+</div>
+<span class="font-label text-[9px] tracking-[0.2em] opacity-40 uppercase group-hover:opacity-100 transition-opacity">Export Script</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface opacity-60 group-hover:opacity-100 group-hover:text-primary transition-all" data-icon="edit_note">edit_note</span>
+</div>
+<span class="font-label text-[9px] tracking-[0.2em] opacity-40 uppercase group-hover:opacity-100 transition-opacity">Refine AI</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full flex justify-between items-center px-12 py-6 z-30 bg-gradient-to-t from-[#0e0e0e] to-transparent h-20">
+<div class="font-['Inter'] text-[10px] tracking-widest uppercase opacity-50 text-[#dec396]">
+            © 2024 PITCH MAKER STUDIOS. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase opacity-50 text-[#dec396] hover:text-[#f2c062] transition-opacity" href="#">Terms</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase opacity-50 text-[#dec396] hover:text-[#f2c062] transition-opacity" href="#">Privacy</a>
+<a class="font-['Inter'] text-[10px] tracking-widest uppercase opacity-50 text-[#dec396] hover:text-[#f2c062] transition-opacity" href="#">Support</a>
+</div>
+</footer>
+<!-- Cinematic Overlays (The "Noir Script" detail) -->
+<div class="fixed top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent pointer-events-none z-40 opacity-80"></div>
+<div class="fixed bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent pointer-events-none z-40 opacity-80"></div>
+<!-- Subtle grain texture via CSS overlay -->
+<div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU10S690yHrybaBwf78rbuc3QYLTUe6SSQ_QyL8noN8AAGMO8rKRSzhUHgfBXTFqzy167OB0I1i0x99Nj2MWdIspbvAG3DyvYRkt96htstuNT0G7JLQW4ILJwHsWpXDt2m4XkJv8iLw5CsEfBXFap1el9KiRQBGWLOMQgFuyt62m9bvqteN4hdx1515e8GMI3uLgLD-P2wxoDax4i7fsPAv8j5uGfsm3R3CxMfcUOTVM0_cZFeHH8XmiO3eOacg_unjsj8lbJDIAs');"></div>
+</body></html>

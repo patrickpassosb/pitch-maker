@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#313030",
+              "on-tertiary": "#003063",
+              "primary-fixed-dim": "#f1bf61",
+              "on-surface": "#e5e2e1",
+              "tertiary-fixed-dim": "#a9c7ff",
+              "primary": "#f2c062",
+              "on-secondary": "#3e2e0d",
+              "surface-container": "#201f1f",
+              "outline": "#9b8f7e",
+              "outline-variant": "#4f4537",
+              "surface-container-lowest": "#0e0e0e",
+              "secondary-fixed-dim": "#dec396",
+              "surface-variant": "#353534",
+              "on-error": "#690005",
+              "surface-tint": "#f1bf61",
+              "background": "#131313",
+              "on-secondary-fixed": "#271900",
+              "surface": "#131313",
+              "secondary": "#dec396",
+              "tertiary-container": "#89adec",
+              "inverse-primary": "#7c5800",
+              "on-secondary-fixed-variant": "#564422",
+              "on-tertiary-container": "#144078",
+              "on-primary-fixed-variant": "#5e4200",
+              "tertiary": "#abc8ff",
+              "primary-fixed": "#ffdea7",
+              "tertiary-fixed": "#d6e3ff",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#fbdfb0",
+              "on-tertiary-fixed": "#001b3d",
+              "on-primary": "#412d00",
+              "surface-container-highest": "#353534",
+              "error-container": "#93000a",
+              "on-primary-container": "#563c00",
+              "surface-dim": "#131313",
+              "on-surface-variant": "#d2c5b1",
+              "primary-container": "#d4a54a",
+              "on-background": "#e5e2e1",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#2a2a2a",
+              "on-primary-fixed": "#271900",
+              "surface-bright": "#3a3939",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#1d477f",
+              "secondary-container": "#594624",
+              "on-surface-variant": "#d2c5b1"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .film-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+        .glow-pulse {
+            box-shadow: 0 0 15px rgba(242, 192, 98, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen overflow-hidden">
+<!-- Ambient Film Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none film-grain z-50"></div>
+<!-- Background Light Leak / Gradient -->
+<div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary opacity-[0.03] blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-secondary opacity-[0.02] blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Main Container -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
+<!-- Header / Logo -->
+<header class="mb-16 text-center">
+<h1 class="font-headline font-black tracking-[-0.02em] text-primary uppercase text-xl sm:text-2xl">
+                PITCH MAKER
+            </h1>
+<div class="h-px w-8 bg-primary/30 mx-auto mt-2"></div>
+</header>
+<!-- Generation Progress Canvas -->
+<section class="w-full max-w-[480px]">
+<!-- Progress Editorial Header -->
+<div class="mb-12">
+<span class="font-label text-[10px] tracking-[0.2em] uppercase text-secondary/60 block mb-2">Current Production</span>
+<h2 class="font-headline text-3xl font-bold text-on-surface tracking-tight leading-tight">
+                    Generating your <span class="text-primary italic">vision</span>
+</h2>
+<p class="font-body text-sm text-on-surface-variant/70 mt-3 leading-relaxed">
+                    Our AI directors are assembling the script, visuals, and score for your masterwork. This usually takes about 60 seconds.
+                </p>
+</div>
+<!-- Vertical Stepper -->
+<div class="space-y-0 relative">
+<!-- Step 1: Completed -->
+<div class="flex items-start gap-6 group relative pb-10">
+<!-- Line -->
+<div class="absolute left-[19px] top-10 bottom-0 w-[2px] bg-primary/20"></div>
+<div class="relative z-10 w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary ring-1 ring-primary/20">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+</div>
+<div class="pt-1.5 flex-1">
+<h3 class="font-headline text-lg font-medium text-on-surface opacity-60">Writing cinematic script...</h3>
+<p class="font-label text-[10px] tracking-wider text-primary uppercase mt-1">Completed</p>
+</div>
+</div>
+<!-- Step 2: In Progress -->
+<div class="flex items-start gap-6 group relative pb-10">
+<!-- Line -->
+<div class="absolute left-[19px] top-10 bottom-0 w-[2px] bg-outline-variant/30"></div>
+<div class="relative z-10 w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary glow-pulse shadow-primary/20 shadow-lg">
+<span class="material-symbols-outlined text-xl" data-weight="fill">settings_voice</span>
+</div>
+<div class="pt-1.5 flex-1">
+<h3 class="font-headline text-lg font-bold text-on-surface">Generating voiceover...</h3>
+<div class="flex items-center gap-3 mt-2">
+<div class="h-1 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] rounded-full"></div>
+</div>
+<span class="font-label text-[10px] text-primary tabular-nums">65%</span>
+</div>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex items-start gap-6 group relative pb-10 opacity-40">
+<!-- Line -->
+<div class="absolute left-[19px] top-10 bottom-0 w-[2px] bg-outline-variant/30"></div>
+<div class="relative z-10 w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant border border-outline-variant/20">
+<span class="material-symbols-outlined text-xl">movie_filter</span>
+</div>
+<div class="pt-1.5 flex-1">
+<h3 class="font-headline text-lg font-medium text-on-surface">Creating visuals...</h3>
+<p class="font-label text-[10px] tracking-wider text-on-surface-variant uppercase mt-1">Pending</p>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="flex items-start gap-6 group relative opacity-40">
+<div class="relative z-10 w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant border border-outline-variant/20">
+<span class="material-symbols-outlined text-xl">video_settings</span>
+</div>
+<div class="pt-1.5 flex-1">
+<h3 class="font-headline text-lg font-medium text-on-surface">Assembling final video...</h3>
+<p class="font-label text-[10px] tracking-wider text-on-surface-variant uppercase mt-1">Pending</p>
+</div>
+</div>
+</div>
+<!-- Secondary CTA / Context -->
+<div class="mt-16 p-6 rounded-xl bg-surface-container-low/50 border border-outline-variant/10 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary opacity-70">info</span>
+</div>
+<div>
+<p class="text-[11px] font-label text-secondary uppercase tracking-widest mb-1">Director's Note</p>
+<p class="text-xs text-on-surface-variant/80 leading-relaxed italic">"The visuals are being rendered in 4K with cinema-grade color mapping. Quality takes a moment."</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Visual Teaser (Bottom) -->
+<div class="mt-12 w-full max-w-[480px] h-32 rounded-xl overflow-hidden relative group">
+<img alt="Preview" class="w-full h-full object-cover filter grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700" data-alt="Cinematic close-up of a film projector lens in a dark room with dust motes dancing in the light beam, professional photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRqg7BiW-KOoJfSJ9yESnweIu3DO8BYJBYGU9nWQNkhFxApG6fh8khwYYURiw4p3m2tJ75j1GtlargPYG6vMcQMOYmlha8dDCh_k25BUWqLo5K-GHTfRGJBEtNguBGCxY7Yj1zsdkopYN49LuLgntRcQPbMo7Li55_wXtJ264w0R__tAhr0pCdgusPbC4a_koRTtYx9EOyohTdL0S_mZ8FdI7EszpR6jV4OS-2_h9iitU6Yw-xym65pEuS10mL-lBiqGLsFKWnhLs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
+<span class="font-label text-[9px] tracking-[0.3em] uppercase text-on-surface/50">Processing Stream</span>
+</div>
+</div>
+</main>
+<!-- Global Footer (Suppressed per Rules for Focused Journey, but Branding kept minimal) -->
+<footer class="fixed bottom-0 w-full flex justify-center items-center py-8 z-30 pointer-events-none">
+<p class="font-label text-[9px] tracking-[0.2em] uppercase opacity-30 text-on-surface">
+            © 2024 PITCH MAKER STUDIOS. PRE-PRODUCTION IN PROGRESS.
+        </p>
+</footer>
+</body></html>
